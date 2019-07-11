@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<meta charset="utf-8"/>
+<html>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/jquery.mask.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<head>
+	<title>Exercicio 4 TCS Banking</title>
+	<style type="text/css">
+	
+	a{
+		color: #fff;
+
+	}
+	a:hover{
+		color: #000;
+	}
+</style>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+			<img src="img/logo50.png" width="60"class="d-inline-block align-center" alt="">
+			TCS Banking
+		</a>
+		<input class="btn btn-outline-primary my-2 my-sm-0" style="float: left;" type="button" id="sair" value="Sair">
+	</nav>
+	<div class="container">
+		<center>
+			<img src="img/logo_tcs.png" width="200">
+			<h3>Seja bem Vindo ao TCS Banking!</h3>
+		</center>
+
+		
+	</div>
+	<div class="container" style="padding-left:29%;">
+		<form>
+			<div class="form-group row">
+				<div class="col-md-6" >
+					<div class="input-group mb-6">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Pessoa</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+							<option selected value="">Selecione um tipo de Pessoa...</option>
+							<option value="1">Pessoa Fisica</option>
+							<option value="2">Pessoa Juridica</option>
+							<option value="3">Sem Conta</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<!-- Form Pessoa Fisica -->
+	<div class="container container-light bg-light" style="width: 90%;" id="PessoaF">
+
+		<form id="FormPessoa" name="formP" method="POST">
+
+			<div class="form-group row">
+
+				<div class="col-md-4" style="float: right;">
+					<h4>Informações Pessoais</h4>
+					<div class="input-group mb-6">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="dependentesF">Possui Dependentes</label>
+						</div>
+						<select class="custom-select" id="dependentesF">
+							<option value="nao">Não</option>
+							<option value="sim">Sim</option>
+						</select>
+					</div>
+					<label>Nome:</label>
+					<input class='form-control' type="text" name="nomeF" placeholder="Nome" id="txtNomeF">
+
+					<label>Endereço:</label>
+					<input type="text" name="endereço" id="txtEnderecoF" class="form-control">
+
+
+				</div>
+				<div class="col-md-4" style="margin-top: 74px;">
+					<label>Telefone:</label>
+					<input type="text" name="telefone" id="txtTelefoneF" class="form-control">
+
+				</div>
+
+				<div class="col-md-4" id="referenciaF">
+					<h4>Informações de Referência</h4>
+
+					<input type="text" name="nome" placeholder="Nome de Referencia" id="txtNomeRF" class="form-control">
+
+					<label>Telefone de Referencia:</label>
+					<input type="text" name="telefone" id="txtTelefoneRF" class="form-control">
+
+
+				</div>
+
+				<div class="col-md-4" id="dependentesPf">
+					<h4>Informações do Dependente</h4>
+					<input type="text" name="nome" placeholder="Nome de Referencia" id="txtNomeRD" class="form-control">
+
+					<label>Telefone do Dependente:</label>
+					<input type="text" name="telefone" id="txtTelefoneDF" class="form-control">
+
+					<label>CPF do Dependente:</label>
+					<input type="text" name="cpf" id="txtCpfF" class="form-control">
+
+
+				</div>	
+
+				<div class="col-md-12" style="margin-right: 20px; margin-bottom: 20px; margin-top: 20px;">
+					<input style="float: right;" type="button" class="btn btn-outline-success" id="btnSalvarF" value="Salvar">
+				</div>
+			</div>
+
+		</form>
+	</div>
+	<!-- table pessoa fisica -->
+	<div class="container" id="GridPf">
+		<h2>Informações da Pessoa Fisica</h2>
+		<table style="width: 100%;" id="GridPessoaF">
+			<thead>
+				<th>Nome</th>
+				<th>Endereço</th>
+				<th>Telefone</th>
+				<th>Dependente?</th>
+				<th>Nome Dep</th>
+				<th>Telefone Dep</th>
+				<th>Cpf Dep</th>
+				<th>Nome Refe</th>
+				<th>Telefone Refe</th>
+				<th>Ações</th>
+				<thead>
+				</table>
+			</div>
+
+			<!------------------------------------------SEM CONTA ------------------------------------>
+			<!-- Form Sem Conta -->
+			<div class="container container-light bg-light" style="width: 90%;" id="PessoaS">
+
+				<form id="FormPessoa" name="formP" method="POST">
+
+					<div class="form-group row">
+						<h4>Informações Pessoais</h4>
+						<div class="col-md-12">
+							<label>Nome:</label>
+							<input type="text" name="nome" id="txtNomeS" class="form-control">
+						</div>
+						<div class="col-md-6">
+							<label>Telefone:</label>
+							<input type="text" name="telefone" id="txtTelefoneS" class="form-control">
+						</div>
+						<div class="col-md-6">
+							<label>Cpf:</label>
+							<input type="text" name="cpf" id="txtCpfS" class="form-control">
+						</div>
+						<div class="col-md-12">
+							<label>Observações:</label>
+							<textarea type="text" name="obs" id="txtObsS" class="form-control"></textarea> 
+						</div>
+
+						<div class="col-md-12" style="margin-right: 20px; margin-bottom: 20px; margin-top: 20px;">
+							<input style="float: right;" type="button" class="btn btn-outline-success" id="btnSalvarS" value="Salvar">
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<!-- table pessoa Sem conta -->
+			<div class="container" id="GridPs">
+				<h2>Informações do Novo Cliente</h2>
+				<table style="width: 100%;" id="GridPessoaS">
+					<thead>
+						<th>Nome</th>
+						<th>Telefone</th>
+						<th>Cpf</th>
+						<th>Obs</th>
+						<th>Ações</th>
+						<thead>
+						</table>
+					</div>
+					<!------------------------------------------PESSOA JURIDICA ------------------------------------>
+					<!-- Form Pessoa Juridica -->
+					<div class="container container-light bg-light" style="width: 70%;" id="PessoaJ">
+
+						<form id="FormPessoa" name="formJ" method="POST">
+
+							<div class="form-group row">
+
+								<div class="col-md-4" style="float: right;">
+									<h4>Informações Juridicas</h4>
+									<div class="input-group mb-6">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="limite">Limite</label>
+										</div>
+										<select class="custom-select" id="limite">
+											<option value="1">Inferior a 100.00</option>
+											<option value="2">Superior ou igual a 100.00</option>
+										</select>
+									</div>
+									<label>Nome:</label>
+									<input class='form-control' type="text" name="nomeJ" placeholder="Nome" id="txtNomeJ">
+
+									<label>Endereço:</label>
+									<input type="text" name="endereço" id="txtEnderecoJ" class="form-control">
+
+
+
+									<label>Telefone:</label>
+									<input type="text" name="telefone" id="txtTelefoneJ" class="form-control">
+
+								</div>
+
+								<div class="col-md-6" id="menorlimite">
+									<h4>Informações do Limite</h4>
+
+									<input type="text" name="valor" placeholder="Valor" id="txtValorL" class="form-control">
+								</div>
+
+								<div id="maiorLimite" class="col-md-6">
+									<h4>Informações do Limite</h4>
+
+									<input type="text" name="nome" placeholder="Nome de Referencia" id="txtNomeRJ" class="form-control">
+
+									<label>Telefone de Referencia:</label>
+									<input type="text" name="telefone" id="txtTelefoneRJ" class="form-control">
+									<br>
+									<div class="input-group mb-6">
+										<div class="input-group-prepend">
+											<label class="input-group-text" for="banco">Banco</label>
+										</div>
+										<select class="custom-select" id="banco">
+											<option value="Bradesco">Bradesco</option>
+											<option value="Itau">Itaú</option>
+											<option value="Santander">Santander</option>
+										</select>
+									</div>
+
+									
+									<label>Agencia</label>
+									<input type="text" name="agencia" id="txtAgencia" class="form-control">
+
+									<label>Conta</label>
+									<input type="text" name="conta" id="txtConta" class="form-control">
+
+								</div>	
+
+								<div class="col-md-12" style="margin-right: 20px; margin-bottom: 20px; margin-top: 20px;">
+									<input style="float: right;" type="button" class="btn btn-outline-success" id="btnSalvarJ" value="Salvar">
+								</div>
+							</div>
+
+						</form>
+					</div>
+					<!-- table pessoa Juridica -->
+					<div class="container" id="GridPJ">
+						<h2>Informações da Pessoa Juridica</h2>
+						<table style="width: 100%;" id="GridPessoaJ">
+							<thead>
+								<th>Nome</th>
+								<th>Endereço</th>
+								<th>Telefone</th>
+								<th>Limite</th>
+								<th>Nome Refe</th>
+								<th>Telefone Refe</th>
+								<th>Banco</th>
+								<th>Agencia</th>
+								<th>Conta</th>
+								<th>Ações</th>
+								<thead>
+								</table>
+							</div>
+						</body>
+						</html>
